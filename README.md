@@ -5,32 +5,43 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Auth is configured with [better-auth](https://www.better-auth.com/) using email magic links. Go to [http://localhost:3000/sign-in](http://localhost:3000/sign-in), enter your email, and submit the form.
 
-## Learn More
+In local development, emails are not sent — the magic link is printed in the terminal where `pnpm dev` is running. Look for a line like `[magic-link] to: you@example.com` and open the URL to complete sign-in. New accounts are created automatically on first login.
 
-To learn more about Next.js, take a look at the following resources:
+### Learn the codebase with an agent
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you are new to this repo, use the **codebase-onboarding** skill (`.agents/skills/codebase-onboarding/`) in Cursor or Claude Code. Ask the agent to onboard you — for example:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+/codebase-onboarding Onboard me to this codebase
+```
 
-## Deploy on Vercel
+The skill analyzes the project structure, conventions, and entry points, then produces an onboarding guide and updates `CLAUDE.md` with project-specific instructions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Agentic Engineering
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is configured for Agentic Engineering with rules and skills from [affaan-m/ECC](https://github.com/affaan-m/ECC).
+
+The source of truth is the `.agents` directory:
+
+- **`.agents/rules/`** — coding standards and project conventions
+- **`.agents/skills/`** — reusable agent skills (task-specific instructions)
+
+Symlinks in `.claude/` and `.cursor/` point at `.agents` so Claude Code and Cursor share the same rules and skills:
+
+```
+.claude/rules  -> ../.agents/rules
+.claude/skills -> ../.agents/skills
+.cursor/rules  -> ../.agents/rules
+.cursor/skills -> ../.agents/skills
+```
+
+Edit files under `.agents`; changes apply to both tools automatically.
