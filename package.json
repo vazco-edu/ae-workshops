@@ -10,6 +10,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
     "check": "pnpm lint && pnpm format:check && pnpm typecheck",
     "db:start": "docker compose up -d",
     "db:stop": "docker compose down",
@@ -64,6 +66,7 @@
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-tailwindcss": "0.8.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.8"
   }
 }

@@ -19,6 +19,8 @@ Project specification: [MedBridge](https://docs.google.com/document/d/1q4nEy9cO5
 | `pnpm format`       | Format all files with Prettier                           |
 | `pnpm format:check` | Check formatting without writing changes                 |
 | `pnpm typecheck`    | Run TypeScript type checking without emitting files      |
+| `pnpm test`         | Run Vitest in watch mode                                 |
+| `pnpm test:run`     | Run Vitest once (CI-friendly)                            |
 | `pnpm check`        | Run lint, format check, and typecheck together           |
 | `pnpm db:start`     | Start the local Postgres database via Docker Compose     |
 | `pnpm db:stop`      | Stop the local Postgres database                         |
