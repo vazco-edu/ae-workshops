@@ -1,3 +1,7 @@
+# MedBridge
+
+Project specification: [MedBridge](https://docs.google.com/document/d/1q4nEy9cO5W0okZOoAOVT-naie12lUwV0ZKGl3D8u4IE/edit?usp=sharing)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Prerequisites
