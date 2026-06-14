@@ -2,15 +2,48 @@
 
 Project specification: [MedBridge](https://docs.google.com/document/d/1q4nEy9cO5W0okZOoAOVT-naie12lUwV0ZKGl3D8u4IE/edit?usp=sharing)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) — v22.17.0 recommended
 - [pnpm](https://pnpm.io/installation) — v11.6.0 recommended
 - [Docker](https://www.docker.com/get-started/) — required for the local Postgres database (`pnpm db:start`)
 
+## Scripts
+
+| Script              | Description                                              |
+| ------------------- | -------------------------------------------------------- |
+| `pnpm dev`          | Start the Next.js development server                     |
+| `pnpm build`        | Build the application for production                     |
+| `pnpm start`        | Start the production server                              |
+| `pnpm lint`         | Run ESLint to check for code issues                      |
+| `pnpm format`       | Format all files with Prettier                           |
+| `pnpm format:check` | Check formatting without writing changes                 |
+| `pnpm typecheck`    | Run TypeScript type checking without emitting files      |
+| `pnpm check`        | Run lint, format check, and typecheck together           |
+| `pnpm db:start`     | Start the local Postgres database via Docker Compose     |
+| `pnpm db:stop`      | Stop the local Postgres database                         |
+| `pnpm db:generate`  | Generate Drizzle ORM migration files from schema changes |
+| `pnpm db:migrate`   | Apply pending database migrations                        |
+| `pnpm db:studio`    | Open Drizzle Studio to browse and edit the database      |
+
 ## Getting Started
+
+### Environment variables
+
+Copy the example file and fill in the values:
+
+```bash
+cp .env.example .env.local
+```
+
+### MCP clients
+
+Copy the example MCP config for your AI client:
+
+- **Cursor**: `cp .agents/mcp.example.json .cursor/mcp.json`
+- **Claude Code**: `cp .agents/mcp.example.json .mcp.json`
+
+### Run the development server
 
 First, run the development server:
 
@@ -34,11 +67,11 @@ If you are new to this repo, use the **codebase-onboarding** skill (`.agents/ski
 /codebase-onboarding Onboard me to this codebase
 ```
 
-The skill analyzes the project structure, conventions, and entry points, then produces an onboarding guide and updates `CLAUDE.md` with project-specific instructions.
+The skill analyzes the project structure, conventions, and entry points, then produces an onboarding guide and updates `AGENTS.md` with project-specific instructions.
 
 ## Agentic Engineering
 
-This project is configured for Agentic Engineering with rules and skills from [affaan-m/ECC](https://github.com/affaan-m/ECC).
+This project is configured for Agentic Engineering with rules and skills from [affaan-m/ECC](https://github.com/affaan-m/ECC) and [mattpocock/skills](https://github.com/mattpocock/skills).
 
 The source of truth is the `.agents` directory:
 
