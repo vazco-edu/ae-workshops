@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) — v22.17.0 recommended
+- [pnpm](https://pnpm.io/installation) — v11.6.0 recommended
+- [Docker](https://www.docker.com/get-started/) — required for the local Postgres database (`pnpm db:start`)
+
 ## Getting Started
 
 First, run the development server:
